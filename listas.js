@@ -7,8 +7,13 @@ import{Text,StyleSheet,View} from 'react-native';
 function Pessoa({data}){
     return(
         <View style={styles.areaPessoa}>
-        <Text style={styles.textoPessoa}>{data.nome}</Text>
+         <Text style={styles.textoPessoa}>{data.nome}</Text>
+
+    
+      
         </View>
+
+        
     );
 }
 

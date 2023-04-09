@@ -7,6 +7,7 @@ export default function App() {
 
   const [nome, setNome] = useState('');
   const [lista, setLista] = useState([]);
+  const [novoTexto, setNovoTexto] = useState('');
 
   function adicionar() {
     const novoItem = { nome };
@@ -18,6 +19,16 @@ export default function App() {
     novaLista.splice(index,1);
     setLista(novaLista);
   }
+
+ 
+  function editarItem(index) {
+    const listas = [...lista];
+    listas.splice();
+    setLista(novoTexto);
+    
+ 
+  }
+  
   
  
   return (
@@ -31,9 +42,12 @@ export default function App() {
       
     
       />
-      <TouchableOpacity onPress={adicionar}><Text style={styles.button}>+</Text></TouchableOpacity>
+
+
+<TouchableOpacity onPress={adicionar}><Text style={styles.button}>+</Text></TouchableOpacity>
       <TouchableOpacity onPress={removerItem}><Text style={styles.button}>-</Text></TouchableOpacity>
-      
+      <TouchableOpacity onPress={editarItem}><Text style={styles.button}>0</Text></TouchableOpacity>
+  
       </View>
       
       <FlatList
