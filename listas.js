@@ -7,7 +7,10 @@ import{Text,StyleSheet,View} from 'react-native';
 function Pessoa({data}){
     return(
         <View style={styles.areaPessoa}>
-         <Text style={styles.textoPessoa}>{data.nome}</Text>
+         <Text style={styles.textoPessoa}>{data.nome}
+      V </Text>
+
+      
 
     
       
@@ -19,11 +22,18 @@ function Pessoa({data}){
 
 const styles = StyleSheet.create({
     areaPessoa:{
-        flex:1,
+       
+        backgroundColor:'red',
+        width:400,
+        height:30,
+        marginBottom:20,
+        
+        
     },
     textoPessoa:{
         fontSize:15,
-        color:'black'
+        color:'black',
+        textAlign:'center',
 
     }
 })
