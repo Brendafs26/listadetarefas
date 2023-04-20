@@ -20,16 +20,12 @@ export default function App() {
     setLista(novaLista);
   }
 
- 
-  function editarItem(index) {
+  function editarItem() {
+    
     const novaLista = [...lista];
-    novaLista.splice(index,1,{novoTexto});
+    novaLista.splice(0,1,novalista=[lista]);
     setLista(novaLista);
-    
-    
- 
   }
-  
   
  
   return (
@@ -50,6 +46,9 @@ export default function App() {
       <TouchableOpacity onPress={adicionar}><Text style={styles.button}>+</Text></TouchableOpacity>
       <TouchableOpacity onPress={removerItem}><Text style={styles.button}>-</Text></TouchableOpacity>
       <TouchableOpacity onPress={editarItem}><Text style={styles.button}>0</Text></TouchableOpacity>
+
+     
+    
 
    
       

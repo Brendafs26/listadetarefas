@@ -1,5 +1,9 @@
 import React from 'react';
-import{Text,StyleSheet,View} from 'react-native';
+import{Text,StyleSheet,View,TextInput} from 'react-native';
+
+
+
+import App from './App';
 
 
 
@@ -8,8 +12,9 @@ function Pessoa({data}){
     return(
         <View style={styles.areaPessoa}>
          <Text style={styles.textoPessoa}>{data.nome}
-      V </Text>
+       </Text>
 
+     
       
 
     
@@ -35,7 +40,17 @@ const styles = StyleSheet.create({
         color:'black',
         textAlign:'center',
 
-    }
+    },
+
+    input:{
+        height:30,
+        width:380,
+        borderWidth:2,
+        margin:10,
+        padding:15,
+        fontSize:10,
+        color:'black'
+      },
 })
 
 export default Pessoa;
