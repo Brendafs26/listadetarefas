@@ -9,31 +9,35 @@ export default function App() {
   const [lista, setLista] = useState([]);
   const [novoTexto, setNovoTexto] = useState('');
 
+
+   
   function adicionar() {
     const novoItem = { nome };
     setLista([ ...lista, novoItem]);
   }
-
-  function removerItem(index) {
-    const novaLista = [...lista];
-    novaLista.splice(index,1);
-    setLista(novaLista);
-  }
-
-  function editarItem() {
-    
-    const novaLista = [...lista];
-    novaLista.splice(0,1,novalista=[lista]);
-    setLista(novaLista);
-  }
   
+  
+  function  removerItem(index) {
+      const novaLista = [...lista];
+      novaLista.splice(index,1);
+      setLista(novaLista);
+    }
+  
+    function editarItem() {
+      
+      const novaLista = [...lista];
+      novaLista.splice(0,1,novalista=[lista]);
+      setLista(novaLista);
+    }
+    
  
   return (
     <SafeAreaView style={styles.container}>
-      <View>
+      
 
 
       <Text style={styles.texto}>Lista de Tarefa</Text>
+      <View style={styles.principal}>
       <TextInput
       style={styles.input}
       placeholder="Digite uma tarefa"
@@ -41,11 +45,12 @@ export default function App() {
       value={nome}
       
       />
-
-
-      <TouchableOpacity onPress={adicionar}><Text style={styles.button}>+</Text></TouchableOpacity>
-      <TouchableOpacity onPress={removerItem}><Text style={styles.button}>-</Text></TouchableOpacity>
-      <TouchableOpacity onPress={editarItem}><Text style={styles.button}>0</Text></TouchableOpacity>
+<View style={styles.botao}>
+<TouchableOpacity onPress={adicionar}><Text style={styles.button}>+</Text></TouchableOpacity>
+</View>
+</View>
+     
+      
 
      
     
@@ -53,11 +58,12 @@ export default function App() {
    
       
   
-      </View>
+      
       
       <FlatList
       data={lista}
-      renderItem={({ item }) => <Pessoa data={item} />}
+      renderItem={({ item }) => (<Pessoa data={item} onPress={()=>removerItem(item)}  />)
+    }
      
       
     />
@@ -70,33 +76,55 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
- 
    
+    backgroundColor:'blue',
+   justifyContent:"center",
+    alignItems: 'center',
+  },
+  principal:{
+    flexDirection:'row',
+    marginBottom:30,
+   
+    
+    
   },
   input:{
-    height:30,
+    height:60,
     width:380,
-    borderWidth:2,
-    margin:10,
-    padding:15,
-    fontSize:10,
-    color:'black'
+    borderWidth:10,
+    fontSize:20,
+    color:"black",
+   
+    backgroundColor:"white",
+    margin:0,
+    padding:5,
   },
   texto:{
     fontSize:30,
-    textAlign: 'center',
-    marginBottom:30,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems:"center",
+    marginVertical:40,
+    color:"white",
+    
+    
+    
 
 
   },
   button: {
     fontSize: 20,
-    color: 'blue',
-    margin: 10,
+    color: 'white',
+    padding:10,
+
+   
   },
+  botao:{
+    borderWidth:5,
+    backgroundColor:'gray',
+  
+  }
+
 });
 
 
