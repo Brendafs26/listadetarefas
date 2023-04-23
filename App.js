@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { StyleSheet, View,TextInput,SafeAreaView, FlatList, TouchableOpacity,Text } from 'react-native';
-
-import Pessoa from './listas';
+ import Pessoa from './listas';
 
 export default function App() {
 
