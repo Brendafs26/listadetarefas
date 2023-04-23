@@ -19,14 +19,14 @@ export default function App() {
   
   function  removerItem(index) {
       const novaLista = [...lista];
-      novaLista.splice(index,1);
+      novaLista.slice(index);
       setLista(novaLista);
     }
   
     function editarItem() {
       
       const novaLista = [...lista];
-      novaLista.splice(0,1,novalista=[lista]);
+      novaLista.splice(0,1,{nome});
       setLista(novaLista);
     }
     
