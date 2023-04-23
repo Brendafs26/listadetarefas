@@ -9,7 +9,7 @@ function Pessoa({data}){
          <Text style={styles.textoPessoa}> {data.nome} </Text>
          <View style={styles.botaoes}>
          <TouchableOpacity onPress={data.onPress}><Text style={styles.botao}>-</Text></TouchableOpacity>
-        <TouchableOpacity  onPress={data.onPress}><Text style={styles.botao}>+</Text></TouchableOpacity>
+         <TouchableOpacity  onPress={data.onPress}><Text style={styles.botao}>+</Text></TouchableOpacity>
         
         </View>
       

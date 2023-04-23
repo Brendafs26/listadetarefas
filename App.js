@@ -6,19 +6,17 @@ export default function App() {
 
   const [nome, setNome] = useState('');
   const [lista, setLista] = useState([]);
-  const [novoTexto, setNovoTexto] = useState('');
 
 
-   
   function adicionar() {
     const novoItem = { nome };
     setLista([ ...lista, novoItem]);
   }
   
   
-  function  removerItem(index) {
+  function removerItem(index) {
       const novaLista = [...lista];
-      novaLista.slice(index);
+      novaLista.slice(index,1);
       setLista(novaLista);
     }
   
@@ -32,9 +30,7 @@ export default function App() {
  
   return (
     <SafeAreaView style={styles.container}>
-      
-
-
+    
       <Text style={styles.texto}>Lista de Tarefa</Text>
       <View style={styles.principal}>
       <TextInput
@@ -49,19 +45,11 @@ export default function App() {
 </View>
 </View>
      
-      
-
-     
     
-
-   
-      
-  
-      
       
       <FlatList
       data={lista}
-      renderItem={({ item }) => (<Pessoa data={item} onPress={()=>removerItem(item)}  />)
+      renderItem={({ item }) => <Pessoa data={item}   />
     }
      
       
@@ -84,8 +72,6 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     marginBottom:30,
    
-    
-    
   },
   input:{
     height:60,
@@ -105,10 +91,6 @@ const styles = StyleSheet.create({
     alignItems:"center",
     marginVertical:40,
     color:"white",
-    
-    
-    
-
 
   },
   button: {
@@ -122,9 +104,49 @@ const styles = StyleSheet.create({
     borderWidth:5,
     backgroundColor:'gray',
   
-  }
+  },
+  areaPessoa:{
+    
+    backgroundColor:'white',
+    width:400,
+    height:60,
+    marginBottom:20,
+    
+    
+},
+textoPessoa:{
+    fontSize:15,
+    color:'blue',
+  
+     paddingTop:15
+
+},
+botaoes:{
+     flexDirection:"row",
+     alignSelf:'flex-end',
+     paddingRight:10,
+    paddingBottom:15,
+     
+},
 
 });
+
+
+
+function Pessoa(props){
+  return(
+    <View style={styles.areaPessoa}>
+      <Text style={styles.textoPessoa}>{props.data.nome}</Text>
+      <View style={styles.botaoes}>
+         <TouchableOpacity onPress={removerItem}><Text style={styles.botao}>-</Text></TouchableOpacity>
+         <TouchableOpacity  onPress={editarItem}><Text style={styles.botao}>+</Text></TouchableOpacity>
+        
+        </View>
+      
+    </View>
+  );
+}
+
 
 
 
