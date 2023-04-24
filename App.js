@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { StyleSheet, View,TextInput,SafeAreaView, FlatList, TouchableOpacity,Text } from 'react-native';
- import Pessoa from './listas';
+
 
 export default function App() {
 
@@ -16,7 +16,7 @@ export default function App() {
   
   function removerItem(index) {
       const novaLista = [...lista];
-      novaLista.slice(index,1);
+      novaLista.splice(index,1)
       setLista(novaLista);
     }
   
@@ -49,14 +49,15 @@ export default function App() {
       
       <FlatList
       data={lista}
-      renderItem={({ item }) => <Pessoa data={item}   />
+      renderItem={({ item }) => <Pessoa data={item}  
+      keyExtractor={(item) => item.id}
+       />
     }
      
       
     />
 
-      
-   
+    
     </SafeAreaView>
   );
 }
@@ -138,14 +139,16 @@ function Pessoa(props){
     <View style={styles.areaPessoa}>
       <Text style={styles.textoPessoa}>{props.data.nome}</Text>
       <View style={styles.botaoes}>
-         <TouchableOpacity onPress={removerItem}><Text style={styles.botao}>-</Text></TouchableOpacity>
-         <TouchableOpacity  onPress={editarItem}><Text style={styles.botao}>+</Text></TouchableOpacity>
+         <TouchableOpacity onPress={() => removerItem(item)}><Text style={styles.botao}>-</Text></TouchableOpacity>
+         <TouchableOpacity onPress={() => editarItem(item)}><Text style={styles.botao}>+</Text></TouchableOpacity>
         
         </View>
       
     </View>
   );
 }
+
+
 
 
 
